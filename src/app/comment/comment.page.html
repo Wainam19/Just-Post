@@ -1,0 +1,46 @@
+<ion-header>
+  <app-navbar></app-navbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-grid>
+    <ion-row class="ion-padding-vertical ion-align-items-center">
+      <ion-col>
+        <ion-text class="pageTitle">Comments</ion-text>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-searchbar
+          class="ion-no-padding"
+          (ionClear)="getCommentData()"
+          (ionInput)="getSearchComment($event)"
+        ></ion-searchbar>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col
+        *ngFor="let comment of comment | paginate: { itemsPerPage: 16, currentPage: p}"
+        sizeXl="3"
+        sizeXs="12"
+      >
+        <div class="comment-container">
+          <h3>{{comment.name}}</h3>
+          <p>{{comment.body}}</p>
+          <ion-button color="danger" (click)="delete(comment.id)">
+            <ion-icon
+              name="close-circle-outline"
+              class="delete-icon"
+            ></ion-icon>
+          </ion-button>
+        </div>
+      </ion-col>
+    </ion-row>
+    <!-- Pagination -->
+    <ion-row>
+      <ion-col class="pg-align">
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

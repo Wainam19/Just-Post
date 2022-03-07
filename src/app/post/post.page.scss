@@ -1,0 +1,35 @@
+ion-select {
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+::ng-deep .setOptionWidth {
+  --width: 96%;
+}
+
+.post-container {
+  padding: 16px;
+  height: 220px;
+  background-color: lightgreen;
+  border-radius: 10px;
+
+  h3 {
+    font-weight: bold;
+  }
+
+  ion-button {
+    position: absolute;
+    bottom: 0;
+    right: 3px;
+    --border-radius: 0 0 10px 0;
+
+    .delete-icon {
+      font-size: 25px;
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  ::ng-deep .setOptionWidth {
+    --width: 88%;
+  }
+}

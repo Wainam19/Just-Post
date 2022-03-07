@@ -1,0 +1,115 @@
+<ion-header>
+  <app-navbar></app-navbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-button routerLink="/staff">
+          <ion-icon name="arrow-back-outline" slot="icon-only"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <form [formGroup]="staffForm" (ngSubmit)="createStaff()">
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <div class="ion-padding-vertical">
+                  <ion-label position="stacked">Staff ID</ion-label>
+                </div>
+                <ion-input
+                  formControlName="staffID"
+                  type="number"
+                  required="true"
+                ></ion-input>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <div class="ion-padding-vertical">
+                  <ion-label position="stacked">Name</ion-label>
+                </div>
+                <ion-input
+                  formControlName="name"
+                  type="text"
+                  required="true"
+                ></ion-input>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <div class="ion-padding-vertical">
+                  <ion-label position="stacked">Gender</ion-label>
+                </div>
+                <ion-select
+                  placeholder="Select Gender"
+                  formControlName="gender"
+                  required="true"
+                >
+                  <ion-select-option value="Male">Male</ion-select-option>
+                  <ion-select-option value="Female">Female</ion-select-option>
+                </ion-select>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <div class="ion-padding-vertical">
+                  <ion-label position="stacked">Email</ion-label>
+                </div>
+                <ion-input
+                  formControlName="email"
+                  placeholder="ex: abc@email.com"
+                  type="email"
+                  required="true"
+                ></ion-input>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <div class="ion-padding-vertical">
+                  <ion-label position="stacked">Phone Number</ion-label>
+                </div>
+                <ion-input
+                  formControlName="phone"
+                  placeholder="ex: 0123456789"
+                  type="phone"
+                  required="true"
+                ></ion-input>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <div class="ion-padding-vertical">
+                  <ion-label position="stacked">Company</ion-label>
+                </div>
+                <ion-select
+                  placeholder="Select Company"
+                  formControlName="company"
+                  required="true"
+                >
+                  <ion-select-option *ngFor="let c of company" [value]="c.name"
+                    >{{c.name}}</ion-select-option
+                  >
+                </ion-select>
+              </ion-col>
+            </ion-row>
+            <ion-row class="ion-padding-vertical">
+              <ion-col>
+                <ion-button
+                  type="submit"
+                  expand="block"
+                  fill="solid"
+                  [disabled]="staffForm.invalid"
+                  >Save</ion-button
+                >
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </form>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

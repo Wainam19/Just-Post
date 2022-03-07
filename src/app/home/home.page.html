@@ -1,20 +1,52 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
+  <app-navbar></app-navbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+<ion-content>
+  <ion-grid class="outer-container">
+    <ion-row>
+      <ion-col>
+        <div class="option-container">
+          <div class="ion-text-center">
+            <ion-button class="options-btn" routerLink="/post">
+              <ion-icon name="create" class="icon"></ion-icon>
+            </ion-button>
+            <div class="ion-padding">
+              <ion-text class="options-title">Posts</ion-text>
+            </div>
+          </div>
+          <div class="ion-text-center">
+            <ion-button class="options-btn" routerLink="/comment">
+              <ion-icon name="chatbubbles" class="icon"></ion-icon>
+            </ion-button>
+            <div class="ion-padding">
+              <ion-text class="options-title">Comments</ion-text>
+            </div>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <div class="option-container">
+          <div class="ion-text-center">
+            <ion-button class="options-btn" routerLink="/company">
+              <ion-icon name="business" class="icon"></ion-icon>
+            </ion-button>
+            <div class="ion-padding">
+              <ion-text class="options-title">Company</ion-text>
+            </div>
+          </div>
+          <div class="ion-text-center">
+            <ion-button class="options-btn" routerLink="/staff">
+              <ion-icon name="person-circle" class="icon"></ion-icon>
+            </ion-button>
+            <div class="ion-padding">
+              <ion-text class="options-title">Staff</ion-text>
+            </div>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

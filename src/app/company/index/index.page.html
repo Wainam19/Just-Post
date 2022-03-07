@@ -1,0 +1,67 @@
+<ion-header>
+  <app-navbar></app-navbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-grid>
+    <ion-row class="ion-align-items-center">
+      <ion-col>
+        <ion-text class="pageTitle">Company</ion-text>
+      </ion-col>
+      <ion-col class="ion-hide-md-down btn-align">
+        <ion-button routerLink="company-create" size="large">
+          Add Company
+        </ion-button>
+      </ion-col>
+      <ion-col class="ion-hide-md-up btn-align">
+        <ion-button routerLink="company-create">
+          <ion-icon name="add-circle-outline" slot="icon-only"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-searchbar
+          class="ion-no-padding"
+          (ionClear)="getCompanyData()"
+          (ionInput)="getSearchCompany($event)"
+        ></ion-searchbar>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-padding-vertical">
+      <ion-col class="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th *ngFor="let h of header">{{h}}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let cpy of company; index as i">
+              <td>{{i + 1}}</td>
+              <td>{{cpy.name}}</td>
+              <td>{{cpy.code}}</td>
+              <td>{{cpy.description}}</td>
+              <td>
+                <ion-button
+                  fill="clear"
+                  size="large"
+                  [routerLink]="['company-detail', cpy._id]"
+                >
+                  <ion-icon name="create-outline"></ion-icon>
+                </ion-button>
+                <ion-button
+                  fill="clear"
+                  size="large"
+                  (click)="deleteAlert(cpy._id)"
+                >
+                  <ion-icon name="trash-outline"></ion-icon>
+                </ion-button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

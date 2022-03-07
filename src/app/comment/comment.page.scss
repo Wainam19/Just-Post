@@ -1,0 +1,21 @@
+.comment-container {
+  padding: 16px;
+  height: 200px;
+  background-color: lightgreen;
+  border-radius: 10px;
+
+  h3 {
+    font-weight: bold;
+  }
+
+  ion-button {
+    position: absolute;
+    bottom: 0;
+    right: 3px;
+    --border-radius: 0 0 10px 0;
+
+    .delete-icon {
+      font-size: 25px;
+    }
+  }
+}

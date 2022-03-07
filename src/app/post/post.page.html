@@ -1,0 +1,57 @@
+<ion-header>
+  <app-navbar></app-navbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-grid>
+    <ion-row class="ion-align-items-center">
+      <ion-col>
+        <ion-text class="pageTitle">Posts</ion-text>
+      </ion-col>
+      <ion-col *ngIf="selectedTitle" class="btn-align">
+        <ion-button (click)="reset()" size="large" fill="clear">
+          <ion-icon name="refresh-circle-outline"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-padding-vertical">
+      <ion-col>
+        <ion-select
+          [(ngModel)]="selectedTitle"
+          (ngModelChange)="getFilteredPost($event)"
+          placeholder="Select Title"
+          interface="popover"
+          [interfaceOptions]="{'cssClass': 'setOptionWidth'}"
+        >
+          <ion-select-option *ngFor="let post of postTitle" [value]="post.title"
+            >{{post.title}}</ion-select-option
+          >
+        </ion-select>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col
+        *ngFor="let post of post | paginate: { itemsPerPage: 16, currentPage: p}"
+        sizeXl="3"
+        sizeXs="12"
+      >
+        <div class="post-container">
+          <h3>{{post.title}}</h3>
+          <p>{{post.body}}</p>
+          <ion-button color="danger" (click)="delete(post.id)">
+            <ion-icon
+              name="close-circle-outline"
+              class="delete-icon"
+            ></ion-icon>
+          </ion-button>
+        </div>
+      </ion-col>
+    </ion-row>
+    <!-- Pagination -->
+    <ion-row>
+      <ion-col class="pg-align">
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

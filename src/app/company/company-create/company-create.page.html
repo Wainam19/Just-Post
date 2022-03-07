@@ -1,0 +1,65 @@
+<ion-header>
+  <app-navbar></app-navbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-button routerLink="/company">
+          <ion-icon name="arrow-back-outline" slot="icon-only"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <form [formGroup]="companyForm" (ngSubmit)="createCompany()">
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <ion-label
+                  class="item-label ion-padding-vertical"
+                  position="stacked"
+                  >Name</ion-label
+                >
+                <ion-input formControlName="name" required="true"></ion-input>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <ion-label class="item-label" position="stacked"
+                  >Code</ion-label
+                >
+                <ion-input
+                  formControlName="code"
+                  placeholder="ex: CODE123"
+                  required="true"
+                ></ion-input>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <ion-label class="item-label" position="stacked"
+                  >Description</ion-label
+                >
+                <ion-input formControlName="description"></ion-input>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <ion-button
+                  type="submit"
+                  expand="block"
+                  fill="solid"
+                  mode="ios"
+                  [disabled]="companyForm.invalid"
+                  >Save</ion-button
+                >
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </form>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,70 @@
+<ion-header>
+  <app-navbar></app-navbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-grid>
+    <ion-row class="ion-align-items-center">
+      <ion-col>
+        <ion-text class="pageTitle">Staff</ion-text>
+      </ion-col>
+      <ion-col class="ion-hide-md-down btn-align">
+        <ion-button routerLink="staff-create" size="large">
+          Add Staff
+        </ion-button>
+      </ion-col>
+      <ion-col class="ion-hide-md-up btn-align">
+        <ion-button routerLink="staff-create">
+          <ion-icon name="add-circle-outline" slot="icon-only"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-searchbar
+          class="ion-no-padding"
+          (ionClear)="getStaffData()"
+          (ionInput)="getSearchStaff($event)"
+        ></ion-searchbar>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-padding-vertical">
+      <ion-col class="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th *ngFor="let h of header">{{h}}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let stf of staff; index as i">
+              <td>{{i + 1}}</td>
+              <td>{{stf.staffId}}</td>
+              <td>{{stf.name}}</td>
+              <td>{{stf.gender}}</td>
+              <td>{{stf.email}}</td>
+              <td>{{stf.phone}}</td>
+              <td>{{stf.company}}</td>
+              <td>
+                <ion-button
+                  fill="clear"
+                  size="large"
+                  [routerLink]="['staff-detail', stf._id]"
+                >
+                  <ion-icon name="create-outline"></ion-icon>
+                </ion-button>
+                <ion-button
+                  fill="clear"
+                  size="large"
+                  (click)="deleteAlert(stf._id)"
+                >
+                  <ion-icon name="trash-outline"></ion-icon>
+                </ion-button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

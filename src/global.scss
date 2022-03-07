@@ -16,7 +16,7 @@
 @import "~@ionic/angular/css/normalize.css";
 @import "~@ionic/angular/css/structure.css";
 @import "~@ionic/angular/css/typography.css";
-@import '~@ionic/angular/css/display.css';
+@import "~@ionic/angular/css/display.css";
 
 /* Optional CSS utils that can be commented out */
 @import "~@ionic/angular/css/padding.css";
@@ -24,3 +24,43 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+@font-face {
+  font-family: Pacifico;
+  src: url(./assets/fonts/Pacifico-Regular.ttf);
+}
+
+ion-button {
+  text-transform: none;
+}
+
+ion-input,
+ion-select {
+  border: 1px solid lightgrey;
+  border-radius: 5px;
+}
+
+.pageTitle {
+  font-size: 26px;
+}
+
+.btn-align {
+  display: flex;
+  justify-content: end;
+}
+
+//Pagination
+.pg-align {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.table-scroll {
+  overflow-x: auto;
+}
+
+@media only screen and (max-width: 768px) {
+  .pageTitle {
+    font-size: 20px;
+  }
+}
